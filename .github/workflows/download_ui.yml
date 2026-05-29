@@ -7,7 +7,7 @@ jobs:
       - name: Pull and Save Image
         run: |
           docker pull us-central1-docker.pkg.dev/keephq/keep/keep-ui:latest
-          docker save -o keep-api.tar us-central1-docker.pkg.dev/keephq/keep/keep-ui:latest
+          docker save -o keep-ui.tar us-central1-docker.pkg.dev/keephq/keep/keep-ui:latest
       - name: Upload to Page
         uses: actions/upload-artifact@v4
         with:
