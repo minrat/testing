@@ -1,4 +1,4 @@
-name: Get Image Link
+name: Get_Image_Link_UI
 on: workflow_dispatch
 jobs:
   download_image:
