@@ -1,0 +1,15 @@
+name: Get Image Link
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull us-central1-docker.pkg.dev/keephq/keep/keep-api:latest
+          docker save -o keep-api.tar us-central1-docker.pkg.dev/keephq/keep/keep-api:latest
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: keep-api-image
+          path: keep-api.tar
