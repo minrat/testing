@@ -1,0 +1,15 @@
+name: Openclaw-Get-Image-Link
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull ghcr.io/openclaw/openclaw:2026.5.28
+          docker save -o openclaw-5-28.tar ghcr.io/openclaw/openclaw:2026.5.28
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: openclaw-image
+          path: openclaw-5-28.tar
