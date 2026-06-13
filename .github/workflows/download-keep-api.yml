@@ -1,4 +1,4 @@
-name: Get-Image-Link-Keep-API
+name: Get-Image-Keep-API
 on: workflow_dispatch
 jobs:
   download_image:
