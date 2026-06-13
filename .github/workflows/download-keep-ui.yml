@@ -1,4 +1,4 @@
-name: Get_Image_Link_UI
+name: Get-Image-keep-UI
 on: workflow_dispatch
 jobs:
   download_image:
