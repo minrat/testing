@@ -1,0 +1,15 @@
+name: Get-Image-Vector
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull timberio/vector:0.32.2-debian
+          docker save -o vector.tar timberio/vector:0.32.2-debian
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: vector-image
+          path: vector.tar 
