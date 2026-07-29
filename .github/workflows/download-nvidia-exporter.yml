@@ -1,0 +1,15 @@
+name: Get-Image-Nvidia-dcgm_exporter
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull nvcr.io/nvidia/k8s/dcgm-exporter:latest
+          docker save -o dcgm_exporter.tar nvcr.io/nvidia/k8s/dcgm-exporter:latest
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: dcgm_exporter
+          path: dcgm_exporter.tar
