@@ -1,0 +1,15 @@
+name: Get-Image-N8N
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull n8nio/runners:2.38.2
+          docker save -o n8n.tar n8nio/runners:2.38.2
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: n8n-image
+          path: n8n.tar 
