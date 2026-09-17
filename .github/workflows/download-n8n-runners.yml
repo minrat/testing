@@ -1,4 +1,4 @@
-name: Get-Image-N8N
+name: Get-Image-N8N-runners
 on: workflow_dispatch
 jobs:
   download_image:
@@ -7,9 +7,9 @@ jobs:
       - name: Pull and Save Image
         run: |
           docker pull n8nio/runners:2.38.2
-          docker save -o n8n.tar n8nio/runners:2.38.2
+          docker save -o n8n-runners.tar n8nio/runners:2.38.2
       - name: Upload to Page
         uses: actions/upload-artifact@v4
         with:
-          name: n8n-image
-          path: n8n.tar 
+          name: n8n-runners-image
+          path: n8n-runners.tar
