@@ -1,0 +1,15 @@
+name: Get-Image-N8N-sandbox-runner
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull ghcr.io/n8n-io/n8n-sandbox-service-runner-dind:1.3.4
+          docker save -o n8n-sandbox-service-runner.tar ghcr.io/n8n-io/n8n-sandbox-service-runner-dind:1.3.4
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: n8n-sandbox-service-runner-image
+          path: n8n-sandbox-service-runner.tar 
