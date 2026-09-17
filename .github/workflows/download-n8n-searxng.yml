@@ -1,0 +1,15 @@
+name: Get-Image-N8N-searxng
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull ghcr.io/searxng/searxng:latest
+          docker save -o searxng.tar ghcr.io/searxng/searxng:latest
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: n8n-searxng-image
+          path: searxng.tar 
