@@ -11,5 +11,5 @@ jobs:
       - name: Upload to Page
         uses: actions/upload-artifact@v4
         with:
-          name: keep-api-image
+          name: keep-keycloak-image
           path: keep-keycloak.tar
