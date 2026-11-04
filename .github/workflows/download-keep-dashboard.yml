@@ -6,8 +6,8 @@ jobs:
     steps:
       - name: Pull and Save Image
         run: |
-          docker pull us-central1-docker.pkg.dev/keephq/keep/keep-arq-dashboard:latest
-          docker save -o keep-arq-dashboard.tar us-central1-docker.pkg.dev/keephq/keep/keep-arq-dashboard:latest
+          docker pull us-central1-docker.pkg.dev/keephq/keep/keep-arq-dashboard:0.55.0
+          docker save -o keep-arq-dashboard.tar us-central1-docker.pkg.dev/keephq/keep/keep-arq-dashboard:0.55.0
       - name: Upload to Page
         uses: actions/upload-artifact@v4
         with:
