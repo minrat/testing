@@ -1,0 +1,15 @@
+name: Get-Image-Litellm
+on: workflow_dispatch
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull ghcr.io/berriai/litellm:main-latest
+          docker save -o litellm.tar ghcr.io/berriai/litellm:main-latest
+      - name: Upload to Page
+        uses: actions/upload-artifact@v4
+        with:
+          name: litellm-image
+          path: litellm.tar
